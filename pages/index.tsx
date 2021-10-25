@@ -1,7 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { json } from 'stream/consumers'
-import { getHeapCodeStatistics } from 'v8'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
 
 const api_url = process.env.API_URL
@@ -31,9 +29,19 @@ export const getStaticProps = async ({ params }) => {
 }
 
 const Home: React.FC<{ posts: Post[] }> = (props) => {
+
+  const router = useRouter()
+
   return (
     <div className={styles.container}>
       <h1>`Hello :)`</h1>
+      <ul>
+        {router.locales.map(lan => (
+         <li key={lan}>
+           <Link href={router.asPath} locale={lan}><a>{lan}</a></Link>
+           </li>
+        ))}
+      </ul>
     </div>
   )
 }
