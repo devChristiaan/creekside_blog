@@ -20,6 +20,7 @@ async function getPost(slug: string) {
   return payload.posts[0]
 }
 
+//Execute on Server
 export const getStaticProps = async ({ params }) => {
 
   const post = await getPost(params.slug)
@@ -30,6 +31,7 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
+//runs at build time
 export const getStaticPaths = () => {
   return {
     paths: [],
