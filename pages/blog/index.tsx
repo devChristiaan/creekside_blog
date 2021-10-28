@@ -36,18 +36,11 @@ const Home: React.FC<{ posts: Post[] }> = (props) => {
 
   return (
     <div className={styles.container}>
-      <h1>Hello World</h1>
+      <h1>Blog</h1>
       <ul>
         {posts.map((post, index) => {
           return <li key={post.slug}><Link href="/post/[slug]" as={`/post/${post.slug}`}><a>{post.title}</a></Link></li>
         })}
-      </ul>
-      <ul>
-        {router.locales.map(lan => (
-         <li key={lan}>
-           <Link href={router.asPath} locale={lan}><a>{lan}</a></Link>
-           </li>
-        ))}
       </ul>
     </div>
   )
