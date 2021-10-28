@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import styles from '../../styles/Home.module.scss'
+import styles from '../../../styles/Blog.module.scss'
 
 const { API_URL, CONTENT_API_KEY } = process.env
 
@@ -55,7 +55,7 @@ const Post: React.FC<{post: Post}> = (props) => {
     <h1>{post.title}</h1>
     <div dangerouslySetInnerHTML={{__html: post.html}}>
     </div>
-    <Link href="/"><a>Go Back</a></Link>
+    <Link href="/blog"><a>Go Back</a></Link>
     </div>
   
   )

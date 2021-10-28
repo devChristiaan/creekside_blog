@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import styles from '../styles/Blog.module.scss'
+import styles from '../../styles/Blog.module.scss'
 
 const { API_URL, CONTENT_API_KEY } = process.env
 
@@ -39,7 +39,7 @@ const Home: React.FC<{ posts: Post[] }> = (props) => {
       <h1>Blog</h1>
       <ul>
         {posts.map((post, index) => {
-          return <li key={post.slug}><Link href="/post/[slug]" as={`/post/${post.slug}`}><a>{post.title}</a></Link></li>
+          return <li key={post.slug}><Link href="/blog/post/[slug]" as={`/blog/post/${post.slug}`}><a>{post.title}</a></Link></li>
         })}
       </ul>
     </div>
